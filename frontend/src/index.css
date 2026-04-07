@@ -1,0 +1,57 @@
+:root {
+  /* Brand Colors */
+  --primary: #4F46E5;
+  --bg-base: #0A0A14;
+  --text-primary: #F9FAFB;
+}
+
+/* ===================== */
+/*   RESET & BASE        */
+/* ===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* ===================== */
+/*   UTILITY CLASSES     */
+/* ===================== */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.8;
+}
+
+.btn-login {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 10px 24px;
+  font-weight: 600;
+}

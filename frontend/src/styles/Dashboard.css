@@ -1,0 +1,97 @@
+/* src/styles/Dashboard.css */
+
+.dashboard-board {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    flex: 1;
+    /* Automatically takes all remaining height under the Nav! */
+    overflow-x: auto;
+}
+
+.kanban-column {
+    flex: 0 0 350px;
+    /* Force the columns to always be Exactly 350px wide! */
+    background-color: #1A1A2E;
+    /* Same dark theme as our Auth Cards */
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.kanban-column-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.kanban-column-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    /* Scroll inside the column if there are tons of jobs! */
+    flex: 1;
+}
+
+/* Sample Job Card to see how it looks */
+.job-card {
+    background-color: #262640;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.job-card:hover {
+    transform: translateY(-2px);
+    /* Makes the card "lift up" when hovered */
+}
+
+/* src/styles/Dashboard.css */
+
+/* THE NEW LAYOUT WRAPPERS */
+.dashboard-layout {
+    display: flex;
+    height: 100vh;
+    background-color: var(--bg-base);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1A1A2E;
+    border-right: 1px solid var(--border);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background-color: rgba(79, 70, 229, 0.1);
+    /* light indigo hover */
+    color: var(--primary);
+}
+
+.dashboard-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* prevents weird scrolling */
+}

@@ -1,0 +1,37 @@
+/* src/styles/AddJob.css */
+
+.add-job-container {
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.add-job-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-column {
+    flex: 1;
+}
+
+/* Base styling for textareas and dropdowns that our generic inputs don't catch */
+.form-extended-input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.form-extended-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
