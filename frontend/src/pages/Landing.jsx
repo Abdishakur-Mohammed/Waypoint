@@ -1,10 +1,19 @@
 // frontend/src/pages/Landing.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Landing.css'; // We'll create this next!
 
 function Landing() {
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    // When the page loads, check if they have a VIP pass in their pocket!
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsLoggedIn(true);
+        }
+    }, []);
 
     return (
         <div className="landing-container">
@@ -12,8 +21,14 @@ function Landing() {
             <nav className="landing-nav">
                 <div className="landing-logo">JobTrackr.</div>
                 <div className="landing-nav-links">
-                    <button className="login-btn" onClick={() => navigate('/login')}>Log in</button>
-                    <button className="signup-btn" onClick={() => navigate('/register')}>Sign up free</button>
+                    {isLoggedIn ? (
+                        <button className="signup-btn" onClick={() => navigate('/dashboard')}>Go to Dashboard →</button>
+                    ) : (
+                        <>
+                            <button className="login-btn" onClick={() => navigate('/login')}>Log in</button>
+                            <button className="signup-btn" onClick={() => navigate('/register')}>Sign up free</button>
+                        </>
+                    )}
                 </div>
             </nav>
 
@@ -28,8 +43,14 @@ function Landing() {
                     Stop using messy spreadsheets. Organize your job search, track interview stages, and analyze your success rate with our premium Kanban board.
                 </p>
                 <div className="hero-actions">
-                    <button className="primary-btn" onClick={() => navigate('/register')}>Start Tracking Now</button>
-                    <button className="secondary-btn" onClick={() => navigate('/login')}>View Live Demo</button>
+                    {isLoggedIn ? (
+                        <button className="primary-btn" onClick={() => navigate('/dashboard')}>Open Dashboard</button>
+                    ) : (
+                        <>
+                            <button className="primary-btn" onClick={() => navigate('/register')}>Start Tracking Now</button>
+                            <button className="secondary-btn" onClick={() => navigate('/login')}>View Live Demo</button>
+                        </>
+                    )}
                 </div>
             </main>
             {/* --- NEW: The Features Section --- */}
@@ -62,7 +83,11 @@ function Landing() {
                 <div className="cta-content">
                     <h2>Ready to take control of your career?</h2>
                     <p>Join developers who are organizing their search and landing offers faster.</p>
-                    <button className="primary-btn" onClick={() => navigate('/register')}>Create Your Free Account</button>
+                    {isLoggedIn ? (
+                        <button className="primary-btn" onClick={() => navigate('/dashboard')}>Return to Dashboard</button>
+                    ) : (
+                        <button className="primary-btn" onClick={() => navigate('/register')}>Create Your Free Account</button>
+                    )}
                 </div>
             </section>
 
