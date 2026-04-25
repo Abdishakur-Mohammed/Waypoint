@@ -6,6 +6,8 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import AddJob from './pages/AddJob'
+import Analytics from './pages/Analytics'
+import Settings from './pages/Setting'
 
 
 function App() {
@@ -18,6 +20,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/AddJob" element={<ProtectedRoute><AddJob /></ProtectedRoute>} />
+        <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+
       </Routes>
     </BrowserRouter>
   )

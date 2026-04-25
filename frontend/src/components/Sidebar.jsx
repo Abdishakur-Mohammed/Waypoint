@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/Waypointfv.png'
 
+
 function Sidebar() {
     const navigate = useNavigate();
     return (
@@ -10,8 +11,8 @@ function Sidebar() {
 
             <nav className="sidebar-nav">
                 <a href="#" className="sidebar-link active" onClick={() => navigate('/dashboard')}>Board</a>
-                <a href="#" className="sidebar-link">Analytics</a>
-                <a href="#" className="sidebar-link">Settings</a>
+                <a href="#" className="sidebar-link" onClick={() => navigate('/analytics')}>Analytics</a>
+                <a href="#" className="sidebar-link" onClick={() => navigate('/settings')}>Settings</a>
             </nav>
         </div>
     )

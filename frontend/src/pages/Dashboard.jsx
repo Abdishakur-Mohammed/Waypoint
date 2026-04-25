@@ -75,7 +75,7 @@ function Dashboard() {
         }
     };
 
-    // 3. Deleting the cargo
+    // Deleting the cargo
     const handleDelete = async (e, jobId) => {
         // e.stopPropagation() prevents the browser from accidentally triggering a drag when we just wanted to click the trash button!
         e.stopPropagation();
@@ -132,7 +132,6 @@ function Dashboard() {
                     </div>
 
                     {/* Column 2 */}
-                    {/* Column 1 */}
                     <div className="kanban-column">
                         <div className="kanban-column-header">interview ({jobs.filter(job => job.status === 'interview').length})</div>
                         <div className="kanban-column-content" onDragOver={(e) => e.preventDefault()} onDrop={(e) => handleDrop(e, 'interview')}>
